@@ -50,14 +50,24 @@ export default function footer() {
 
         {/* DL Resume + Repo Link */}
         <div className="flex flex-col gap-y-2 lg:items-end items-center justify-end lg:mb-0">
-          <button className="cursor-pointer text-white/60 flex flex-row items-center gap-x-4 hover:text-white/80 transition-all duration-200">
+          <a
+            href="/Nickolas-Tetzlaff-Resume.pdf"
+            download
+            className="cursor-pointer text-white/60 flex flex-row items-center gap-x-4 hover:text-white/80 transition-all duration-200"
+          >
             Download my resume
             <Download />
-          </button>
-          <button className="cursor-pointer text-white/60 flex flex-row items-center gap-x-4 hover:text-white/80 transition-all duration-200">
+          </a>
+          <Link
+            title="Link to page repo"
+            target="_blank"
+            rel="noopener noreferrer"
+            href={"https://github.com/nick-sait/portfolio-page.git"}
+            className="cursor-pointer text-white/60 flex flex-row items-center gap-x-4 hover:text-white/80 transition-all duration-200"
+          >
             View this page&apos;s repo
             <ArrowRight />
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -80,7 +90,7 @@ export default function footer() {
             <Github />
           </button>
         </div>
-        <p className="text-[#797979] font-light text-sm">
+        <p className="text-white/60 text-md">
           Nickolas Tetzlaff ©{new Date().getFullYear()}{" "}
         </p>
       </div>

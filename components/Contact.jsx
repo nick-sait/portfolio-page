@@ -3,8 +3,8 @@
 export default function Contact() {
 
   return (
-    <section id="contact" className="relative mb-20">
-      <div className="mb-20 lg:mx-auto mx-6">
+    <section id="contact" className="relative mb-20 min-h-screen py-20">
+      <div className="mb-20 lg:mx-auto mx-6 ">
         <h2 className="relative text-brand text-6xl text-center font-medium mb-2 lg:tracking-widest">
           Contact
         </h2>

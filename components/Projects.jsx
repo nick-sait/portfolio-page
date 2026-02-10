@@ -34,7 +34,7 @@ export default function ProjectsSection() {
         {/* Weave */}
         <div className="grid items-center lg:grid-cols-2 lg:items-start">
           {/* Left content */}
-          <div className="flex flex-col gap-y-8 sm:gap-y-10">
+          <div className="flex flex-col gap-y-8 sm:gap-y-10 lg:max-w-3/4">
             {/* Header */}
             <div>
               <div className="flex items-center gap-x-4">

@@ -4,14 +4,16 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
-  const [visible, setVisible] = useState(false);
-  const [activeSection, setActiveSection] = useState("about"); // default
 
+  const [visible, setVisible] = useState(false); // Set header visible 
+  const [activeSection, setActiveSection] = useState("home"); // default -> highlights current page section
+
+  // Reveal header at 300 pixels
   const REVEAL_AT = 300;
 
+  // Scroll event listener to fetch current section
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > REVEAL_AT);
-
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -110,7 +112,7 @@ export default function Header() {
     <nav
       className={[
         "fixed top-0 left-0 right-0 z-50 font-sans",
-        "bg-[#101010] flex flex-row lg:justify-end justify-center lg:gap-x-16 gap-x-4 py-4 px-12",
+        "bg-[#101010]/80 flex flex-row lg:justify-end justify-center lg:gap-x-16 gap-x-4 py-4 px-12",
         "transition-all duration-300 ease-out",
         visible
           ? "translate-y-0 opacity-100"
