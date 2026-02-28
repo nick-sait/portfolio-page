@@ -118,7 +118,7 @@ export default function AboutSection() {
                 label={["React /", "React Native"]}
                 img="/images/react.png"
                 tooltip={
-                  "I've spent many hours noodling around in NextJS and React Native. View my projects below for a glimpse of what I've created with these powerful frameworks."
+                  "I've spent many hours noodling around in NextJS and React Native. View my projects below for a glimpse of what I've created with these frameworks."
                 }
               />
               <SkillCard
@@ -158,7 +158,7 @@ export default function AboutSection() {
                 label={["CloudFlare"]}
                 img="/images/cloudflare.png"
                 tooltip={
-                  "From creating my own storage buckets to hosting websites, I've made use of the power of CloudFlare. Added bonus for their anti-webscraping protection!"
+                  "I've made use of the power of CloudFlare from creating my own storage buckets to hosting websites, DNS config and email routing."
                 }
               />
 

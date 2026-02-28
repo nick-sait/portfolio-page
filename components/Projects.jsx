@@ -3,10 +3,20 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-const screenshots = [
+const weaveScreenshots = [
   { src: "/images/weave-1.jpg", alt: "Weave app screenshot 1" },
   { src: "/images/weave-2.jpg", alt: "Weave app screenshot 2" },
   { src: "/images/weave-3.jpg", alt: "Weave app screenshot 3" },
+];
+
+const abScreenshots = [
+  {
+    src: "/images/ab-1.png",
+    alt: "Absolute Yardworks homepage",
+    ratio: "video",
+  },
+  { src: "/images/ab-2.png", alt: "Quote builder interface", ratio: "5/4" },
+  { src: "/images/ab-3.png", alt: "Mobile booking layout", ratio: "video" },
 ];
 
 export default function ProjectsSection() {
@@ -77,7 +87,7 @@ export default function ProjectsSection() {
           {/* Screens */}
           <div className="-mx-4 px-4 overflow-x-auto lg:overflow-visible lg:mx-0 lg:px-0">
             <div className="flex gap-x-4 sm:gap-x-6 w-max lg:w-auto justify-start lg:justify-center snap-x snap-mandatory">
-              {screenshots.map((img) => (
+              {weaveScreenshots.map((img) => (
                 <button
                   key={img.src}
                   type="button"
@@ -139,29 +149,56 @@ export default function ProjectsSection() {
                 CTAs and polished UI.
               </p>
             </div>
-
-            <a
-              href="https://www.abyardworks.ca"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-center text-white text-base sm:text-lg lg:text-xl border-b-4 border-brand pb-2 transition-all duration-300 hover:pb-4 hover:px-2 mb-0 sm:mb-5"
-            >
-              See it for yourself
-            </a>
           </div>
 
-          {/* Image */}
+          {/* Image Collage */}
           <div className="w-full lg:w-1/2">
-            <div className="group relative w-full aspect-video overflow-hidden rounded-xl bg-black/10 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl">
-              <Image
-                src="/images/ab-yardworks.png"
-                alt="Demo"
-                fill
-                quality={95}
-                className="object-contain transition-transform duration-300 group-hover:scale-[1.01]"
-                sizes="(min-width: 1024px) 560px, 92vw"
-                priority
-              />
+            <div className="group relative w-full rounded-2xl transition-all duration-300 hover:-translate-y-1 p-4">
+              <div className="space-y-4">
+                {/* Hero (16:9) */}
+                <button
+                  type="button"
+                  onClick={() => setActive(abScreenshots[0])}
+                  className="relative w-full aspect-video overflow-hidden rounded"
+                >
+                  <Image
+                    src="/images/ab-1.png"
+                    alt="Absolute Yardworks homepage"
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(min-width: 1024px) 560px, 92vw"
+                  />
+                </button>
+
+                {/* Bottom Row */}
+                <div className="grid grid-cols-2 gap-4">
+                  <button
+                    type="button"
+                    onClick={() => setActive(abScreenshots[1])}
+                    className="relative aspect-[5/4] overflow-hidden rounded"
+                  >
+                    <Image
+                      src="/images/ab-2.png"
+                      alt="Quote builder interface"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => setActive(abScreenshots[2])}
+                    className="relative aspect-video overflow-hidden rounded"
+                  >
+                    <Image
+                      src="/images/ab-3.png"
+                      alt="Mobile booking layout"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -170,9 +207,9 @@ export default function ProjectsSection() {
         <div className="bg-[#474747] h-0.5 w-full my-20 lg:my-40"></div>
 
         {/* Trade Data */}
-        <div className="grid items-center lg:grid-cols-2 lg:items-start">
+        <div className="grid items-center grid-cols-1  lg:items-start">
           {/* Left content */}
-          <div className="mx-4 flex flex-col gap-y-8 sm:gap-y-10">
+          <div className="mx-4 flex lg:flex-row  flex-col gap-x-8 sm:gap-y-10">
             {/* Header */}
             <div>
               <div className="flex items-center gap-x-4">
@@ -182,38 +219,44 @@ export default function ProjectsSection() {
               </div>
 
               <p className="text-[#eee] text-base sm:text-lg lg:text-xl mt-4">
-                Written in Next.js and DuckDB, this tool combines a passion for economics and data manipulation to allow a user to filter by trade categories between nations to visualize trade flows.
+                Written in Next.js and DuckDB, this tool combines a passion for
+                economics and data manipulation to allow a user to filter by
+                trade categories between nations to visualize trade flows.
               </p>
             </div>
 
             <div className="text-[#eee] text-sm sm:text-base font-light py-6 sm:py-8 lg:py-12 rounded-2xl">
               <p className="mb-4">
-                <span className="font-bold text-brand text-xl"> • </span>Custom
-                ETL pipeline that ingests trade data from UNComtrade and transforms them into parquet files for fast fetching.
+                <span className="font-bold text-brand text-xl"> • </span>Ingests
+                trade data from UNComtrade and transforms them into parquet
+                files for fast fetching.
               </p>
               <p className="mb-4">
                 <span className="font-bold text-brand text-xl"> • </span>
-                Breaks down trade by parent sectors and further by child sectors.
+                Breaks down trade by parent sectors and further by child
+                sectors.
               </p>
               <p className="mb-0">
                 <span className="font-bold text-brand text-xl"> • </span>
-                Discovery features include filtering by category, following
-                groups, and staying updated as new events are published.
+                Plots defecit/surplus between nations and sectors. 
               </p>
             </div>
           </div>
 
           {/* Image */}
           <div className="w-full">
-            <div className="group relative w-full aspect-video overflow-hidden rounded-xl bg-black/10 shadow-lg transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl">
+            <div className="group relative w-full aspect-video overflow-hidden rounded-2xl bg-neutral-900 transition-all duration-300 hover:-translate-y-1">
               <Image
                 src="/images/trade-data-explorer.png"
-                alt="Trade Data Demo Image"
+                alt="Trade Data Explorer dashboard"
                 fill
-                quality={95}
-                className="object-contain transition-transform duration-300 group-hover:scale-[1.01]"
-                sizes="(min-width: 1024px) 560px, 92vw"
+                quality={100}
                 priority
+                className="object-cover transition-transform duration-500 group-hover:scale-[1.015]"
+                sizes="(min-width: 1536px) 1200px,
+             (min-width: 1280px) 1000px,
+             (min-width: 1024px) 800px,
+             92vw"
               />
             </div>
           </div>
@@ -227,32 +270,37 @@ export default function ProjectsSection() {
       {active && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
-          onClick={() => setActive(null)} // click backdrop closes
+          onClick={() => setActive(null)}
           role="dialog"
           aria-modal="true"
         >
           <div
-            className="relative"
-            onClick={(e) => e.stopPropagation()} // prevent closing when clicking the image box
+            className="relative max-w-[95vw] max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close button */}
             <button
               type="button"
               onClick={() => setActive(null)}
               className="absolute -top-10 right-0 rounded-full bg-white/10 px-3 py-1 text-white hover:bg-white/20"
-              aria-label="Close modal"
             >
               ✕
             </button>
 
-            {/* Image container: keep phone ratio, scale to viewport */}
-            <div className="relative w-[min(85vw,380px)] aspect-6/13">
+            <div
+              className={`relative ${
+                active.ratio === "video"
+                  ? "w-[min(90vw,1000px)] aspect-video"
+                  : active.ratio === "5/4"
+                    ? "w-[min(90vw,800px)] aspect-[5/4]"
+                    : "w-[min(85vw,380px)] aspect-6/13"
+              }`}
+            >
               <Image
                 src={active.src}
                 alt={active.alt}
                 fill
                 className="object-contain"
-                sizes="(max-width: 640px) 85vw, 380px"
+                sizes="90vw"
                 priority
               />
             </div>

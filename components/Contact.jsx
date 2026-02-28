@@ -1,6 +1,38 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Contact() {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setLoading(true);
+    setSuccess(false);
+
+    const formData = new FormData(e.target);
+
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      phone: formData.get("phone"),
+      message: formData.get("message"),
+    };
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    setLoading(false);
+
+    if (res.ok) {
+      setSuccess(true);
+      e.target.reset();
+    }
+  }
 
   return (
     <section id="contact" className="relative mb-20 min-h-screen py-20">
@@ -9,10 +41,15 @@ export default function Contact() {
           Contact
         </h2>
         <p className="text-white/50 lg:text-lg text-center">
+          Have any questions about my work?
+          <br />
           Reach out any time - I&apos;m always happy to chat :)
         </p>
       </div>
-      <form className="bg-[#2f2f2f]/30 p-4 rounded max-w-xl lg:mx-auto mx-6">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-[#2f2f2f]/30 p-4 rounded max-w-xl lg:mx-auto mx-6"
+      >
         <Field label="Full Name" htmlFor="name">
           <input
             id="name"
@@ -59,10 +96,18 @@ export default function Contact() {
 
         <button
           type="submit"
+          disabled={loading}
           className="w-full rounded bg-brand px-4 py-3 font-bold text-lg text-black transition hover:opacity-90 cursor-pointer disabled:opacity-60"
         >
-          Submit
+          {loading ? "Sending..." : "Submit"}
         </button>
+
+        {/* Success message */}
+        {success && (
+          <p className="mt-4 text-green-400 text-center">
+            Message sent successfully!
+          </p>
+        )}
       </form>
     </section>
   );
