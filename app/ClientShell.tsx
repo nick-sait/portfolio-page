@@ -1,8 +1,12 @@
 "use client";
 
-import ParticlesBg from "@/components/Background";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const ParticlesBg = dynamic(() => import("@/components/Background"), {
+  ssr: false,
+});
 
 export default function ClientShell({
   children,
@@ -11,12 +15,10 @@ export default function ClientShell({
 }) {
   return (
     <div className="relative min-h-screen bg-black">
-      {/* background */}
       <div className="pointer-events-none fixed inset-0 z-0">
         <ParticlesBg />
       </div>
 
-      {/* content */}
       <div className="relative z-10">
         <Header />
         {children}
