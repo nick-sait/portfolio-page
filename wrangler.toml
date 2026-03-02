@@ -1,2 +1,6 @@
-compatibility_date = "2026-03-02"
+name = "portfolio-page"
+
+compatibility_date = "2026-01-20"
 compatibility_flags = ["nodejs_compat"]
+
+pages_build_output_dir = ".vercel/output/static"
