@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function Header() {
 
   const [visible, setVisible] = useState(false); // Set header visible 
-  const [activeSection, setActiveSection] = useState("home"); // default -> highlights current page section
+  const [activeSection, setActiveSection] = useState("home"); // highlights current page section
 
   // Reveal header at 300 pixels
   const REVEAL_AT = 300;
@@ -105,8 +105,6 @@ export default function Header() {
       "hover:text-brand",
     ].join(" ");
 
-
-    ["home", "about","projects","contact"].map(id => [id, !!document.getElementById(id)])
 
   return (
     <nav
