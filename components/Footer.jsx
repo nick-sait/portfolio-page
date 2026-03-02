@@ -82,13 +82,14 @@ export default function footer() {
           >
             <Mail />
           </a>
-          <button
+          <a
+          href="https://github.com/nick-sait"
             aria-label="github link"
             title="github link"
             className="cursor-pointer hover:bg-white/70 transition-all duration-300 bg-white p-1 rounded-full"
           >
             <Github />
-          </button>
+          </a>
         </div>
         <p className="text-white/60 text-md">
           Nickolas Tetzlaff ©{new Date().getFullYear()}{" "}

@@ -19,6 +19,14 @@ const abScreenshots = [
   { src: "/images/ab-3.png", alt: "Mobile booking layout", ratio: "video" },
 ];
 
+const tradeDataScreenshots = [
+  {
+    src: "/images/trade-data-explorer.png",
+    alt: "Trade data explorer",
+    ratio: "video",
+  },
+];
+
 export default function ProjectsSection() {
   const [active, setActive] = useState(null);
 
@@ -55,8 +63,9 @@ export default function ProjectsSection() {
 
               <p className="text-[#eee] text-base sm:text-lg lg:text-xl mt-4">
                 A full-stack mobile app for discovering local events and
-                communities, curated and personalized to user interests. Built with React
-                Native, Supabase (Postgres), Node.js, Python, and AWS.
+                communities, curated and personalized to user interests. Built
+                with React Native, Supabase (Postgres), Node.js, Python, and
+                AWS.
               </p>
 
               <p className="text-brand text-base sm:text-lg lg:text-xl font-light mt-3">
@@ -68,8 +77,8 @@ export default function ProjectsSection() {
               <p className="mb-4">
                 <span className="font-bold text-brand text-xl"> • </span>Custom
                 ETL pipeline ingests events from high-quality sources,
-                classifies them by type, and normalizes them into the
-                databases schema.
+                classifies them by type, and normalizes them into the databases
+                schema.
               </p>
               <p className="mb-4">
                 <span className="font-bold text-brand text-xl"> • </span>
@@ -78,7 +87,8 @@ export default function ProjectsSection() {
               </p>
               <p className="mb-0">
                 <span className="font-bold text-brand text-xl"> • </span>
-                Create operations that allow users to generate their own events and communities.
+                Create operations that allow users to generate their own events
+                and communities.
               </p>
             </div>
           </div>
@@ -237,14 +247,17 @@ export default function ProjectsSection() {
               </p>
               <p className="mb-0">
                 <span className="font-bold text-brand text-xl"> • </span>
-                Plots defecit/surplus between nations and sectors. 
+                Plots defecit/surplus between nations and sectors.
               </p>
             </div>
           </div>
 
           {/* Image */}
           <div className="w-full">
-            <div className="group relative w-full aspect-video overflow-hidden rounded-2xl bg-neutral-900 transition-all duration-300 hover:-translate-y-1">
+            <button
+              onClick={() => setActive(tradeDataScreenshots[0])}
+              className="group relative w-full aspect-video overflow-hidden rounded-2xl bg-neutral-900 transition-all duration-300 hover:-translate-y-1"
+            >
               <Image
                 src="/images/trade-data-explorer.png"
                 alt="Trade Data Explorer dashboard"
@@ -257,7 +270,7 @@ export default function ProjectsSection() {
              (min-width: 1024px) 800px,
              92vw"
               />
-            </div>
+            </button>
           </div>
         </div>
 
@@ -277,10 +290,11 @@ export default function ProjectsSection() {
             className="relative max-w-[95vw] max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Close Button */}
             <button
               type="button"
               onClick={() => setActive(null)}
-              className="absolute -top-10 right-0 rounded-full bg-white/10 px-3 py-1 text-white hover:bg-white/20"
+              className="absolute top-3 right-3 z-10 rounded-full bg-black/60 backdrop-blur px-3 py-1 text-white hover:bg-black/80"
             >
               ✕
             </button>

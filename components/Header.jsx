@@ -110,7 +110,7 @@ export default function Header() {
     <nav
       className={[
         "fixed top-0 left-0 right-0 z-50 font-sans",
-        "bg-[#101010]/80 flex flex-row lg:justify-end justify-center lg:gap-x-16 gap-x-4 py-4 px-12",
+        "bg-[#101010] flex flex-row lg:justify-end justify-center lg:gap-x-16 gap-x-4 py-4 px-12",
         "transition-all duration-300 ease-out",
         visible
           ? "translate-y-0 opacity-100"
