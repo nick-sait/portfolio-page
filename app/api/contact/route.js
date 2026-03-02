@@ -1,8 +1,13 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req) {
+
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error("RESEND_API_KEY is not defined");
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
+
   try {
     const { name, email, phone, message } = await req.json();
 
@@ -10,7 +15,7 @@ export async function POST(req) {
       return Response.json({ error: "Missing fields" }, { status: 400 });
     }
 
-    // 1) Send to you
+    // 1) Send to me
     const ownerResult = await resend.emails.send({
       from: "Nick Tetzlaff <contact@nickolas-tetzlaff.dev>",
       to: "nickolas.tetzlaff@gmail.com",
@@ -30,7 +35,7 @@ export async function POST(req) {
       return Response.json({ error: "Owner email failed", details: ownerResult.error }, { status: 500 });
     }
 
-    // 2) Confirmation to sender (use camelCase + subject)
+    // 2) Confirmation to sender 
     const confirmResult = await resend.emails.send({
       from: "Nick Tetzlaff <contact@nickolas-tetzlaff.dev>",
       to: email,
