@@ -55,7 +55,7 @@ export default function ProjectsSection() {
 
               <p className="text-[#eee] text-base sm:text-lg lg:text-xl mt-4">
                 A full-stack mobile app for discovering local events and
-                communities—fast, curated, and personalized. Built with React
+                communities, curated and personalized to user interests. Built with React
                 Native, Supabase (Postgres), Node.js, Python, and AWS.
               </p>
 
@@ -68,7 +68,7 @@ export default function ProjectsSection() {
               <p className="mb-4">
                 <span className="font-bold text-brand text-xl"> • </span>Custom
                 ETL pipeline ingests events from high-quality sources,
-                classifies them by type, and normalizes them into a the
+                classifies them by type, and normalizes them into the
                 databases schema.
               </p>
               <p className="mb-4">
@@ -78,8 +78,7 @@ export default function ProjectsSection() {
               </p>
               <p className="mb-0">
                 <span className="font-bold text-brand text-xl"> • </span>
-                Discovery features include filtering by category, following
-                groups, and staying updated as new events are published.
+                Create operations that allow users to generate their own events and communities.
               </p>
             </div>
           </div>

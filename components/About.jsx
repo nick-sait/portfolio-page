@@ -72,15 +72,19 @@ export default function AboutSection() {
               </div>
             </div>
 
-            <p className="text-[#eeeeee] leading-snug font-light text-base sm:text-lg lg:text-xl text-center">
-              Pursuant to my enjoyment of building and creating, I began down
-              the self-taught route of software development. After getting a
-              taste, and wanting to maximize my skillset, I enrolled at the
-              Software program at SAIT, where I will complete my studies in the
-              Fall of 2026. In that time I have fallen in love with the
-              creativity, the logic flows and freedom of developing software. To
-              date, I have a number of freelance and personal projects on the go
-              and ready for launch in the near future, which you can view below.
+            <p className="text-[#eeeeee] leading-snug font-light text-lg text-center">
+              I’m a Calgary-based full stack developer focused on building
+              thoughtful, scalable software. Starting off as a self-taught
+              curiosity, software quickly turned into a serious pursuit, leading
+              me to enroll in SAIT’s Software Development program, where I’ll
+              graduate in Fall 2026.
+              <br />
+              <br />
+              I’m especially drawn to products that sit at the intersection of
+              clean design, solid architecture, and real-world utility. Whether
+              it’s building backend systems, crafting responsive interfaces, or
+              automating data workflows, I enjoy solving problems end-to-end,
+              discovering new tools, and shipping things that actually get used.
             </p>
           </div>
 
@@ -101,7 +105,7 @@ export default function AboutSection() {
                 label={["SQL"]}
                 img="/images/sql.png"
                 tooltip={
-                  "The old bread and butter - SQL. I’ve designed and queried relational data using PostgreSQL (Supabase), including multi-table relationships, joins, and practical schema decisions for real app features."
+                  "I’ve designed and queried relational data using PostgreSQL (Supabase), including multi-table relationships, joins, and practical schema decisions for real app features."
                 }
               />
               <SkillCard
@@ -109,7 +113,7 @@ export default function AboutSection() {
                 text="#F8D64B"
                 label={["Python"]}
                 img="/images/python-logo.png"
-                tooltip="I use Python for data cleaning/transformations, automation, small scripts, plus some web work (e.g., Flask) and finance-focused tooling."
+                tooltip="I use Python for data pipelines, ETL workflows, automation scripts, and analytical tooling. I’ve built ingestion systems that clean, normalize, deduplicate, and load structured data into production databases."
               />
 
               <SkillCard
@@ -126,7 +130,7 @@ export default function AboutSection() {
                 text="#7EBC06"
                 label={["Node"]}
                 img="/images/node.png"
-                tooltip="I’ve used Node.js to build back-end utilities and APIs—handling requests, working with databases, and wiring up server-side logic."
+                tooltip="I’ve used Node.js to build back-end utilities and APIs to handle requests, working with databases, and wiring up server-side logic."
               />
               <SkillCard
                 border="#EF5232"
@@ -142,7 +146,7 @@ export default function AboutSection() {
                 label={["Tailwind CSS"]}
                 img="/images/tailwind-logo.png"
                 tooltip={
-                  "Ahh, styling - my best friend and my worst enemy. Made easier with Tailwind!"
+                  "I use Tailwind to build consistent design systems across React / NextJS projects."
                 }
               />
               <SkillCard
